@@ -3,103 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pantry Chef</title>
-<meta name="description" content="Track what's in your kitchen, get AI recipes that use up what's expiring, then scale, convert, shop and cook with built-in timers.">
-<meta name="app-repo" content="https://github.com/dguywhoknows/pantry-recipe-planner">
-<meta name="app-version" content="2.0.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2703a'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial%2CHelvetica%2Csans-serif' font-weight='700' font-size='13' fill='white'%3EPC%3C/text%3E%3C/svg%3E">
+<title>Pantry Chef: Cook what you have before it goes bad</title>
+<meta name="description" content="Track your pantry, get recipes that use up what is expiring first, plan the week and get a shopping list that subtracts what you own.">
+<meta property="og:title" content="Pantry Chef">
+<meta property="og:description" content="Track your pantry, get recipes that use up what is expiring first, plan the week and get a shopping list that subtracts what you own.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2703a'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='13' fill='white'%3EPC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/base.css">
-<link rel="stylesheet" href="styles/app.css">
+<link rel="stylesheet" href="styles/landing.css">
+<style>:root { --accent: #e2703a; }</style>
 </head>
-<body>
-<header class="topbar">
-  <div class="brand"><span class="logo" aria-hidden="true">PC</span><div><h1>Pantry Chef</h1><p>Cook what you have before it goes bad.</p></div></div>
-  <nav class="topnav" data-nav aria-label="Pages"></nav>
-  <div class="top-actions"><a class="btn ghost sm" href="https://github.com/dguywhoknows/pantry-recipe-planner" target="_blank" rel="noopener">GitHub</a><span data-ai-badge></span></div>
+<body class="landing">
+<header class="l-nav">
+  <a class="l-brand" href="#top"><span class="logo">PC</span><b>Pantry Chef</b></a>
+  <nav aria-label="Sections"><a href="#demo">Demo</a><a href="#ask">Ask it</a><a href="#features">Features</a><a href="#faq">FAQ</a></nav>
+  <div class="l-nav-cta"><a class="btn primary" href="app.html">Open the app</a></div>
 </header>
-<div class="page active" data-page="kitchen" data-title="Kitchen">
-<main class="grid side">
-  <aside class="stack">
-    <section class="card">
-      <div class="row between"><h2 style="margin:0">Pantry</h2><span class="tag" id="pantryCount"></span></div>
-      <form id="addForm" class="add-row">
-        <input class="input" id="addName" placeholder="item" required aria-label="Item">
-        <input class="input" id="addQty" type="number" step="any" min="0" placeholder="qty" aria-label="Quantity">
-        <select id="addUnit" aria-label="Unit"><option value="">unit</option><option>g</option><option>kg</option><option>ml</option><option>l</option><option>cup</option><option>tbsp</option><option>tsp</option><option>oz</option><option>lb</option><option>pc</option></select>
-        <input class="input" id="addExp" type="date" title="Expiry date" aria-label="Expiry date">
-        <button class="btn primary" type="submit" aria-label="Add">Add</button>
-      </form>
-      <div class="row" style="margin-top:6px"><input class="input grow" id="quick" placeholder="Quick add: 3 eggs, 500g chicken, half a cabbage"><button class="btn sm" id="quickBtn">Parse</button></div>
-      <div id="pantry" class="pantry"></div>
-    </section>
-  </aside>
-  <section class="stack">
-    <div class="card stack">
-      <h2 style="margin:0">What should I cook?</h2>
-      <div class="row" id="diets">
-        <label class="chk"><input type="checkbox" value="vegetarian"> Vegetarian</label>
-        <label class="chk"><input type="checkbox" value="vegan"> Vegan</label>
-        <label class="chk"><input type="checkbox" value="gluten-free"> Gluten-free</label>
-        <label class="chk"><input type="checkbox" value="dairy-free"> Dairy-free</label>
-        <label class="chk"><input type="checkbox" value="high-protein"> High-protein</label>
-      </div>
-      <div class="grid cols-3">
-        <label>Max time<select id="time"><option value="20">20 min</option><option value="35" selected>35 min</option><option value="60">1 hour</option><option value="120">No limit</option></select></label>
-        <label>Cuisine<select id="cuisine"><option value="any">Any</option><option>Italian</option><option>Mexican</option><option>Indian</option><option>Chinese</option><option>Japanese</option><option>Thai</option><option>Mediterranean</option><option>Korean</option></select></label>
-        <label>Units<select id="units"><option value="metric">Metric</option><option value="us">US</option></select></label>
-      </div>
-      <button class="btn primary" id="suggest">Suggest 3 recipes</button>
+
+<main id="top">
+  <section class="l-hero">
+    <p class="l-kicker">Free · runs in your browser · AI built in</p>
+    <h1>Cook what you have before it goes bad.</h1>
+    <p class="l-sub">Track your pantry, get recipes that use up what is expiring first, plan the week and get a shopping list that subtracts what you own.</p>
+    <div class="l-actions"><a class="btn primary big" href="app.html">Open the app</a><a class="btn big" href="#demo">See it working</a></div>
+  </section>
+
+  <section class="l-demo reveal" id="demo">
+    <div class="l-window"><div class="l-window-bar"><i></i><i></i><i></i><span>Pantry Chef</span></div>
+      <iframe src="app.html?embed=1" title="Pantry Chef live demo" loading="lazy"></iframe></div>
+    <p class="l-caption">This is the real app running below, not a recording. Try it.</p>
+  </section>
+
+  <section class="l-section reveal" id="ask">
+    <div class="l-head"><p class="l-kicker">Just say what you want</p><h2>Tell it in plain words. It uses its own tools to do it.</h2>
+      <p>Open the AI box in the app, type a request, and the AI drives the app's real features for you: it sets things up, edits, runs and reports back. Standing instructions let you shape every AI feature to how you like to work.</p></div>
+    <div class="l-prompts"><div class="l-prompt"><div class="say">I just bought 6 eggs, a bag of spinach and 500g of chicken</div><div class="does">Adds all three to the pantry with expiry estimates.</div></div><div class="l-prompt"><div class="say">Plan dinners for this week, vegetarian on weekdays</div><div class="does">Suggests recipes and fills the meal plan.</div></div><div class="l-prompt"><div class="say">Make me the shopping list</div><div class="does">Builds the list from the plan minus your pantry.</div></div></div>
+  </section>
+
+  <section class="l-section reveal" id="features">
+    <div class="l-head"><p class="l-kicker">What it does</p><h2>Everything in one place</h2></div>
+    <div class="l-grid"><div class="l-card"><h3>Pantry</h3><p>Pantry with expiry tracking and color-coded urgency</p></div><div class="l-card"><h3>Natural-language quick add</h3><p>Natural-language quick add (AI, with a local regex parser fallback)</p></div><div class="l-card"><h3>AI recipes</h3><p>AI recipes with dietary filters, time limit, cuisine and per-serving nutrition</p></div><div class="l-card"><h3>Fuzzy ingredient ↔ pantry matching</h3><p>Fuzzy ingredient ↔ pantry matching with adjective stripping and singularization</p></div><div class="l-card"><h3>Unit engine</h3><p>Mass/volume/count families, metric ↔ US, kitchen fractions (⅓, ¾ …)</p></div><div class="l-card"><h3>Servings slider</h3><p>Servings slider, shortfall-aware shopping list, &#x27;I cooked this&#x27; pantry deduction</p></div><div class="l-card"><h3>Cook mode</h3><p>Big-text steps, keyboard navigation, auto-detected timers with an audio alarm</p></div><div class="l-card"><h3>Recipe box page</h3><p>Save suggestions, favorites, search by title or ingredient, cooked counter</p></div><div class="l-card"><h3>Meal plan page</h3><p>Monday to Sunday planner with drag-and-drop between days, per-meal servings, auto-fill from best pantry matches, weekly nutrition totals</p></div></div>
+  </section>
+
+  <section class="l-section reveal">
+    <div class="l-head"><p class="l-kicker">How it works</p><h2>Real engines where it counts, AI where it helps</h2></div>
+    <div class="l-steps">
+      <div><span>1</span><h3>Open the app</h3><p>No sign-up needed right now. Everything runs in your browser.</p></div>
+      <div><span>2</span><h3>Ask in your own words</h3><p>Type or click. The AI handles recipe generation that prioritizes expiring ingredients (JSON); pantry text → structured items with estimated shelf life.</p></div>
+      <div><span>3</span><h3>Keep what you make</h3><p>Your work is saved in your browser and can be exported any time.</p></div>
     </div>
-    <div id="recipes" class="grid cols-3"></div>
-    <div id="detail"></div>
+    <p class="l-note">Computed locally, with no AI involved: unit conversion, scaling, matching, scoring, shopping list, timers, inventory.</p>
+  </section>
+
+  <section class="l-section reveal" id="faq">
+    <div class="l-head"><p class="l-kicker">Questions</p><h2>Good to know</h2></div>
+    <div class="l-faq">
+      <details><summary>Is it free?</summary><p>Yes. Every feature is free. </p></details>
+      <details><summary>Where is my data stored?</summary><p>What you create stays in this browser on this device. You can export a backup or delete everything from Settings.</p></details>
+      <details><summary>Do I need an API key?</summary><p>Not to try it: the app runs in demo mode with sample AI output. For live AI, connect a free Groq or OpenRouter key in Settings.</p></details>
+      <details><summary>What can I type into the AI box?</summary><p>Anything you would ask a helpful colleague who knows the app, such as: "I just bought 6 eggs, a bag of spinach and 500g of chicken". It plans the steps, runs the app's own functions and tells you what it did. The Instructions tab saves preferences every AI feature follows.</p></details>
+      <details><summary>Can I see the code?</summary><p>Yes. It is open source under the MIT license on <a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">GitHub</a>, with a <a href="tests/">public test suite</a>.</p></details>
+    </div>
+  </section>
+
+  <section class="l-final reveal">
+    <h2>Cook what you have before it goes bad.</h2>
+    <a class="btn primary big" href="app.html">Open the app</a>
   </section>
 </main>
-</div>
 
-<div class="page" data-page="recipes" data-title="Recipes">
-<main class="stack">
-  <div class="page-head"><div><h2>Recipe box</h2><p id="boxSummary"></p></div><div class="row"><input class="input" id="boxSearch" placeholder="Search recipes or ingredients" style="max-width:260px"><label class="chk"><input type="checkbox" id="favOnly"> Favorites</label></div></div>
-  <div class="grid cols-3" id="box"></div>
-  <div id="boxDetail"></div>
-</main>
-</div>
-
-<div class="page" data-page="plan" data-title="Meal plan">
-<main class="stack">
-  <div class="page-head"><div><h2>This week</h2><p id="planSummary"></p></div><div class="row"><button class="btn" id="autoPlan">Fill empty days</button><button class="btn ghost" id="clearPlan">Clear week</button><button class="btn primary" id="planToList">Add to shopping list</button></div></div>
-  <div class="week" id="week"></div>
-  <div class="kpis" id="planNutrition"></div>
-</main>
-</div>
-
-<div class="page" data-page="shopping" data-title="Shopping">
-<main class="stack" style="max-width:860px">
-  <div class="page-head"><div><h2>Shopping list</h2><p id="shopSummary"></p></div><div class="row"><button class="btn" id="copyList">Copy</button><button class="btn" id="boughtToPantry">Move checked to pantry</button><button class="btn ghost danger" id="clearShop">Clear</button></div></div>
-  <form class="card row" id="shopAdd"><input class="input grow" id="shopItem" placeholder="Add an item, e.g. 2 lemons" aria-label="Item"><button class="btn primary" type="submit">Add</button></form>
-  <div id="shopList"></div>
-</main>
-</div>
-
-<div class="page" data-page="insights" data-title="Insights">
-<main class="stack">
-  <div class="kpis" id="insKpis"></div>
-  <div class="grid cols-2">
-    <div class="card"><h2>Expiring in the next 7 days</h2><div id="expTimeline"></div></div>
-    <div class="card"><h2>Most cooked</h2><div id="mostCooked"></div></div>
-  </div>
-  <div class="card"><h2>Activity</h2><div id="activity"></div></div>
-</main>
-</div>
-
-<div class="page" data-page="settings" data-title="Settings"></div>
-<div id="cook" class="cook hidden" role="dialog" aria-modal="true" aria-label="Cooking mode"></div>
-<script src="src/lib/dom.js"></script>
-<script src="src/lib/ai.js"></script>
-<script src="src/lib/router.js"></script>
-<script src="src/core.js"></script>
-<script src="src/demo.js"></script>
-<script src="src/app.js"></script>
+<footer class="l-foot"><span>Pantry Chef</span><span><a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">Source</a> · <a href="tests/">Tests</a> · MIT license</span></footer>
+<script>
+document.querySelectorAll('.reveal').forEach((el) => el.classList.add('pre'));
+const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.remove('pre'); io.unobserve(x.target); } }), { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
 </body>
 </html>
