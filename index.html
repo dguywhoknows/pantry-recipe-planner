@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantry Chef</title>
+<meta name="description" content="Track what's in your kitchen, get AI recipes that use up what's expiring, then scale, convert, shop and cook with built-in timers.">
+<meta name="app-repo" content="https://github.com/dguywhoknows/pantry-recipe-planner">
+<meta name="app-version" content="2.0.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2703a'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial%2CHelvetica%2Csans-serif' font-weight='700' font-size='13' fill='white'%3EPC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo" aria-hidden="true">PC</span><div><h1>Pantry Chef</h1><p>Cook what you have before it goes bad.</p></div></div>
+  <nav class="topnav" data-nav aria-label="Pages"></nav>
+  <div class="top-actions"><a class="btn ghost sm" href="https://github.com/dguywhoknows/pantry-recipe-planner" target="_blank" rel="noopener">GitHub</a><span data-ai-badge></span></div>
+</header>
+<div class="page active" data-page="kitchen" data-title="Kitchen">
+<main class="grid side">
+  <aside class="stack">
+    <section class="card">
+      <div class="row between"><h2 style="margin:0">Pantry</h2><span class="tag" id="pantryCount"></span></div>
+      <form id="addForm" class="add-row">
+        <input class="input" id="addName" placeholder="item" required aria-label="Item">
+        <input class="input" id="addQty" type="number" step="any" min="0" placeholder="qty" aria-label="Quantity">
+        <select id="addUnit" aria-label="Unit"><option value="">unit</option><option>g</option><option>kg</option><option>ml</option><option>l</option><option>cup</option><option>tbsp</option><option>tsp</option><option>oz</option><option>lb</option><option>pc</option></select>
+        <input class="input" id="addExp" type="date" title="Expiry date" aria-label="Expiry date">
+        <button class="btn primary" type="submit" aria-label="Add">Add</button>
+      </form>
+      <div class="row" style="margin-top:6px"><input class="input grow" id="quick" placeholder="Quick add: 3 eggs, 500g chicken, half a cabbage"><button class="btn sm" id="quickBtn">Parse</button></div>
+      <div id="pantry" class="pantry"></div>
+    </section>
+  </aside>
+  <section class="stack">
+    <div class="card stack">
+      <h2 style="margin:0">What should I cook?</h2>
+      <div class="row" id="diets">
+        <label class="chk"><input type="checkbox" value="vegetarian"> Vegetarian</label>
+        <label class="chk"><input type="checkbox" value="vegan"> Vegan</label>
+        <label class="chk"><input type="checkbox" value="gluten-free"> Gluten-free</label>
+        <label class="chk"><input type="checkbox" value="dairy-free"> Dairy-free</label>
+        <label class="chk"><input type="checkbox" value="high-protein"> High-protein</label>
+      </div>
+      <div class="grid cols-3">
+        <label>Max time<select id="time"><option value="20">20 min</option><option value="35" selected>35 min</option><option value="60">1 hour</option><option value="120">No limit</option></select></label>
+        <label>Cuisine<select id="cuisine"><option value="any">Any</option><option>Italian</option><option>Mexican</option><option>Indian</option><option>Chinese</option><option>Japanese</option><option>Thai</option><option>Mediterranean</option><option>Korean</option></select></label>
+        <label>Units<select id="units"><option value="metric">Metric</option><option value="us">US</option></select></label>
+      </div>
+      <button class="btn primary" id="suggest">Suggest 3 recipes</button>
+    </div>
+    <div id="recipes" class="grid cols-3"></div>
+    <div id="detail"></div>
+  </section>
+</main>
+</div>
+
+<div class="page" data-page="recipes" data-title="Recipes">
+<main class="stack">
+  <div class="page-head"><div><h2>Recipe box</h2><p id="boxSummary"></p></div><div class="row"><input class="input" id="boxSearch" placeholder="Search recipes or ingredients" style="max-width:260px"><label class="chk"><input type="checkbox" id="favOnly"> Favorites</label></div></div>
+  <div class="grid cols-3" id="box"></div>
+  <div id="boxDetail"></div>
+</main>
+</div>
+
+<div class="page" data-page="plan" data-title="Meal plan">
+<main class="stack">
+  <div class="page-head"><div><h2>This week</h2><p id="planSummary"></p></div><div class="row"><button class="btn" id="autoPlan">Fill empty days</button><button class="btn ghost" id="clearPlan">Clear week</button><button class="btn primary" id="planToList">Add to shopping list</button></div></div>
+  <div class="week" id="week"></div>
+  <div class="kpis" id="planNutrition"></div>
+</main>
+</div>
+
+<div class="page" data-page="shopping" data-title="Shopping">
+<main class="stack" style="max-width:860px">
+  <div class="page-head"><div><h2>Shopping list</h2><p id="shopSummary"></p></div><div class="row"><button class="btn" id="copyList">Copy</button><button class="btn" id="boughtToPantry">Move checked to pantry</button><button class="btn ghost danger" id="clearShop">Clear</button></div></div>
+  <form class="card row" id="shopAdd"><input class="input grow" id="shopItem" placeholder="Add an item, e.g. 2 lemons" aria-label="Item"><button class="btn primary" type="submit">Add</button></form>
+  <div id="shopList"></div>
+</main>
+</div>
+
+<div class="page" data-page="insights" data-title="Insights">
+<main class="stack">
+  <div class="kpis" id="insKpis"></div>
+  <div class="grid cols-2">
+    <div class="card"><h2>Expiring in the next 7 days</h2><div id="expTimeline"></div></div>
+    <div class="card"><h2>Most cooked</h2><div id="mostCooked"></div></div>
+  </div>
+  <div class="card"><h2>Activity</h2><div id="activity"></div></div>
+</main>
+</div>
+
+<div class="page" data-page="settings" data-title="Settings"></div>
+<div id="cook" class="cook hidden" role="dialog" aria-modal="true" aria-label="Cooking mode"></div>
+<script src="src/lib/dom.js"></script>
+<script src="src/lib/ai.js"></script>
+<script src="src/lib/router.js"></script>
+<script src="src/core.js"></script>
+<script src="src/demo.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>

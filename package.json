@@ -1,0 +1,16 @@
+{
+  "name": "pantry-recipe-planner",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Track what's in your kitchen, get AI recipes that use up what's expiring, then scale, convert, shop and cook with built-in timers.",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "test": "node tests/run-node.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dguywhoknows/pantry-recipe-planner.git"
+  },
+  "homepage": "https://dguywhoknows.github.io/pantry-recipe-planner/",
+  "license": "MIT"
+}
