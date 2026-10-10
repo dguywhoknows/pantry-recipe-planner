@@ -1,4 +1,4 @@
-/* demo.js — sample pantry and canned recipe suggestions used without an API key. */
+/* Sample pantry and canned recipe suggestions used without an API key. */
 var inDays = function (n) { return new Date(Date.now() + n * 864e5).toISOString().slice(0, 10); };
 var DEMO_RECIPES = {
   recipes: [

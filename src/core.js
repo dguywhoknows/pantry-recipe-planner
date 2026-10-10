@@ -1,4 +1,4 @@
-/* core.js — units, ingredient matching, shopping-list aggregation and meal-plan helpers (pure, unit-tested). */
+/* Units, ingredient matching, shopping-list aggregation and meal-plan helpers (pure, unit-tested). */
 
 var DAY_MS = 864e5;
 var UNITS = {

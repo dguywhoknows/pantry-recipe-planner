@@ -3,81 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pantry Chef: Cook what you have before it goes bad</title>
-<meta name="description" content="Track your pantry, get recipes that use up what is expiring first, plan the week and get a shopping list that subtracts what you own.">
+<title>Pantry Chef: Plan meals around what&#x27;s already in your kitchen</title>
+<meta name="description" content="Keep a pantry list with expiry dates, get recipes that use what&#x27;s running out, plan the week and make a shopping list that skips what you already have.">
 <meta property="og:title" content="Pantry Chef">
-<meta property="og:description" content="Track your pantry, get recipes that use up what is expiring first, plan the week and get a shopping list that subtracts what you own.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2703a'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='13' fill='white'%3EPC%3C/text%3E%3C/svg%3E">
+<meta property="og:description" content="Keep a pantry list with expiry dates, get recipes that use what&#x27;s running out, plan the week and make a shopping list that skips what you already have.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%239a4a1c'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='19' fill='white'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="type">:root { --font-head: 'Public Sans', system-ui, sans-serif; --font-body: 'Public Sans', system-ui, sans-serif; }</style>
 <link rel="stylesheet" href="styles/base.css">
 <link rel="stylesheet" href="styles/landing.css">
-<style>:root { --accent: #e2703a; }</style>
+<style>:root { --accent: #9a4a1c; }</style>
 </head>
 <body class="landing">
-<header class="l-nav">
-  <a class="l-brand" href="#top"><span class="logo">PC</span><b>Pantry Chef</b></a>
-  <nav aria-label="Sections"><a href="#demo">Demo</a><a href="#ask">Ask it</a><a href="#features">Features</a><a href="#faq">FAQ</a></nav>
-  <div class="l-nav-cta"><a class="btn ghost" href="login.html">Log in</a><a class="btn primary" href="login.html">Get started free</a></div>
-</header>
+<header class="l-nav"><div class="l-wrap l-nav-in">
+  <a class="l-brand" href="#top">Pantry Chef</a>
+  <nav aria-label="Sections"><a href="#demo">Try it</a><a href="#ask">Commands</a><a href="#features">Features</a><a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">Source</a></nav>
+  <div class="l-nav-cta"><a class="btn ghost" href="login.html">Log in</a><a class="btn primary" href="login.html">Sign up free</a></div>
+</div></header>
 
 <main id="top">
-  <section class="l-hero">
-    <p class="l-kicker">Free · runs in your browser · AI built in</p>
-    <h1>Cook what you have before it goes bad.</h1>
-    <p class="l-sub">Track your pantry, get recipes that use up what is expiring first, plan the week and get a shopping list that subtracts what you own.</p>
-    <div class="l-actions"><a class="btn primary big" href="login.html">Get started free</a><a class="btn big" href="#demo">See it working</a></div>
+  <section class="l-wrap l-hero">
+    <h1>Plan meals around what&#x27;s already in your kitchen.</h1>
+    <p class="l-sub">Keep a pantry list with expiry dates, get recipes that use what&#x27;s running out, plan the week and make a shopping list that skips what you already have.</p>
+    <div class="l-actions"><a class="btn primary big" href="login.html">Sign up free</a><a class="l-link" href="#demo">Or try it on this page</a></div>
+    <p class="l-meta">Version 2.0.0 · MIT license · <a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">github.com/dguywhoknows/pantry-recipe-planner</a></p>
   </section>
 
-  <section class="l-demo reveal" id="demo">
-    <div class="l-window"><div class="l-window-bar"><i></i><i></i><i></i><span>Pantry Chef</span></div>
-      <iframe src="app.html?embed=1" title="Pantry Chef live demo" loading="lazy"></iframe></div>
-    <p class="l-caption">This is the real app running below, not a recording. Try it.</p>
+  <section class="l-wrap l-demo" id="demo">
+    <div class="l-frame"><iframe src="app.html?embed=1" title="Pantry Chef" loading="lazy"></iframe></div>
+    <p class="l-caption">The app itself, running inside this page. Anything you do here is saved in your browser.</p>
   </section>
 
-  <section class="l-section reveal" id="ask">
-    <div class="l-head"><p class="l-kicker">Just say what you want</p><h2>Tell it in plain words. It uses its own tools to do it.</h2>
-      <p>Open the AI box in the app, type a request, and the AI drives the app's real features for you: it sets things up, edits, runs and reports back. Standing instructions let you shape every AI feature to how you like to work.</p></div>
-    <div class="l-prompts"><div class="l-prompt"><div class="say">I just bought 6 eggs, a bag of spinach and 500g of chicken</div><div class="does">Adds all three to the pantry with expiry estimates.</div></div><div class="l-prompt"><div class="say">Plan dinners for this week, vegetarian on weekdays</div><div class="does">Suggests recipes and fills the meal plan.</div></div><div class="l-prompt"><div class="say">Make me the shopping list</div><div class="does">Builds the list from the plan minus your pantry.</div></div></div>
+  <section class="l-wrap l-section" id="ask">
+    <h2>Ask it to do things</h2>
+    <p class="l-lead">Press Ctrl+K in the app (Cmd+K on a Mac) and describe what you want. The model chooses from Pantry Chef's own functions, runs them in order and tells you what changed. Some examples:</p>
+    <table class="l-cmds"><tr><td class="say">I just bought 6 eggs, a bag of spinach and 500g of chicken</td><td>Adds all three to the pantry with expiry estimates.</td></tr><tr><td class="say">Plan dinners for this week, vegetarian on weekdays</td><td>Suggests recipes and fills the meal plan.</td></tr><tr><td class="say">Make me the shopping list</td><td>Builds the list from the plan minus your pantry.</td></tr></table>
+    <p class="l-small">Instructions you save in the same box, such as "keep it short" or "I'm a beginner", are added to every AI request the app makes.</p>
   </section>
 
-  <section class="l-section reveal" id="features">
-    <div class="l-head"><p class="l-kicker">What it does</p><h2>Everything in one place</h2></div>
-    <div class="l-grid"><div class="l-card"><h3>Pantry</h3><p>Pantry with expiry tracking and color-coded urgency</p></div><div class="l-card"><h3>Natural-language quick add</h3><p>Natural-language quick add (AI, with a local regex parser fallback)</p></div><div class="l-card"><h3>AI recipes</h3><p>AI recipes with dietary filters, time limit, cuisine and per-serving nutrition</p></div><div class="l-card"><h3>Fuzzy ingredient ↔ pantry matching</h3><p>Fuzzy ingredient ↔ pantry matching with adjective stripping and singularization</p></div><div class="l-card"><h3>Unit engine</h3><p>Mass/volume/count families, metric ↔ US, kitchen fractions (⅓, ¾ …)</p></div><div class="l-card"><h3>Servings slider</h3><p>Servings slider, shortfall-aware shopping list, &#x27;I cooked this&#x27; pantry deduction</p></div><div class="l-card"><h3>Cook mode</h3><p>Big-text steps, keyboard navigation, auto-detected timers with an audio alarm</p></div><div class="l-card"><h3>Recipe box page</h3><p>Save suggestions, favorites, search by title or ingredient, cooked counter</p></div><div class="l-card"><h3>Meal plan page</h3><p>Monday to Sunday planner with drag-and-drop between days, per-meal servings, auto-fill from best pantry matches, weekly nutrition totals</p></div></div>
+  <section class="l-wrap l-section" id="features">
+    <h2>Features</h2>
+    <dl class="l-feats"><div><dt>Pantry</dt><dd>With expiry tracking and color-coded urgency.</dd></div><div><dt>Natural-language quick add</dt><dd>AI, with a local regex parser fallback.</dd></div><div><dt>AI recipes</dt><dd>With dietary filters, time limit, cuisine and per-serving nutrition.</dd></div><div><dt>Fuzzy ingredient ↔ pantry matching</dt><dd>With adjective stripping and singularization.</dd></div><div><dt>Unit engine</dt><dd>Mass/volume/count families, metric ↔ US, kitchen fractions (⅓, ¾ …).</dd></div><div><dt>Servings slider</dt><dd>Shortfall-aware shopping list, &#x27;I cooked this&#x27; pantry deduction.</dd></div><div><dt>Cook mode</dt><dd>Big-text steps, keyboard navigation, auto-detected timers with an audio alarm.</dd></div><div><dt>Recipe box page</dt><dd>Save suggestions, favorites, search by title or ingredient, cooked counter.</dd></div><div><dt>Meal plan page</dt><dd>Monday to Sunday planner with drag-and-drop between days, per-meal servings, auto-fill from best pantry matches, weekly nutrition totals.</dd></div><div><dt>Shopping page</dt><dd>List built from the whole week&#x27;s plan, merged across recipes, scaled by servings, minus what the pantry already holds, grouped by store aisle.</dd></div></dl>
   </section>
 
-  <section class="l-section reveal">
-    <div class="l-head"><p class="l-kicker">How it works</p><h2>Real engines where it counts, AI where it helps</h2></div>
-    <div class="l-steps">
-      <div><span>1</span><h3>Create a free account</h3><p>One account works across every app on this site.</p></div>
-      <div><span>2</span><h3>Ask in your own words</h3><p>Type or click. The AI handles recipe generation that prioritizes expiring ingredients (JSON); pantry text → structured items with estimated shelf life.</p></div>
-      <div><span>3</span><h3>Keep what you make</h3><p>Your work is saved in your browser and can be exported any time.</p></div>
-    </div>
-    <p class="l-note">Computed locally, with no AI involved: unit conversion, scaling, matching, scoring, shopping list, timers, inventory.</p>
+  <section class="l-wrap l-section l-split">
+    <div><h2>Runs in your browser</h2><p>Unit conversion, scaling, matching, scoring, shopping list, timers, inventory. None of this needs a network connection or a model.</p></div>
+    <div><h2>Uses a language model for</h2><p>Recipe generation that prioritizes expiring ingredients. Pantry text → structured items with estimated shelf life.</p></div>
   </section>
 
-  <section class="l-section reveal" id="faq">
-    <div class="l-head"><p class="l-kicker">Questions</p><h2>Good to know</h2></div>
-    <div class="l-faq">
-      <details><summary>Is it free?</summary><p>Yes. Every feature is free. Each account gets a daily allowance of AI requests.</p></details>
-      <details><summary>Where is my data stored?</summary><p>What you create stays in this browser on this device. Your account is only used to sign you in and to use the built-in AI. You can export a backup or delete everything from Settings.</p></details>
-      <details><summary>Do I need an API key?</summary><p>No. Signed-in users get the built-in AI with nothing to set up. You can also connect your own Groq or OpenRouter key in Settings if you prefer.</p></details>
-      <details><summary>What can I type into the AI box?</summary><p>Anything you would ask a helpful colleague who knows the app, such as: "I just bought 6 eggs, a bag of spinach and 500g of chicken". It plans the steps, runs the app's own functions and tells you what it did. The Instructions tab saves preferences every AI feature follows.</p></details>
-      <details><summary>Can I see the code?</summary><p>Yes. It is open source under the MIT license on <a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">GitHub</a>, with a <a href="tests/">public test suite</a>.</p></details>
-    </div>
-  </section>
-
-  <section class="l-final reveal">
-    <h2>Cook what you have before it goes bad.</h2>
-    <a class="btn primary big" href="login.html">Get started free</a>
+  <section class="l-wrap l-section" id="notes">
+    <h2>Notes</h2>
+    <dl class="l-notes">
+      <dt>Cost</dt><dd>Free. Each account has a daily allowance of AI requests.</dd>
+      <dt>Your data</dt><dd>What you make stays in this browser on this device. Your account is only used for signing in and for the built-in AI. You can export a backup or clear everything from Settings.</dd>
+      <dt>AI access</dt><dd>Signed-in users get the built-in AI with nothing to set up. You can also use your own Groq or OpenRouter key under Settings.</dd>
+      <dt>Source</dt><dd>The code and tests are on <a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">GitHub</a> under the MIT license. The tests also run <a href="tests/">in your browser</a>.</dd>
+    </dl>
   </section>
 </main>
 
-<footer class="l-foot"><span>Pantry Chef</span><span><a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">Source</a> · <a href="tests/">Tests</a> · MIT license</span></footer>
-<script>
-document.querySelectorAll('.reveal').forEach((el) => el.classList.add('pre'));
-const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.remove('pre'); io.unobserve(x.target); } }), { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-</script>
+<footer class="l-foot"><div class="l-wrap l-foot-in"><span>Pantry Chef, by <a href="https://github.com/dguywhoknows" rel="noopener">dguywhoknows</a></span><span><a href="https://github.com/dguywhoknows/pantry-recipe-planner" rel="noopener">Source</a> · <a href="tests/">Tests</a> · <a href="login.html">Sign up free</a></span></div></footer>
 </body>
 </html>

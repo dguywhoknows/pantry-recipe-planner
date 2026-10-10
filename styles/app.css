@@ -1,4 +1,4 @@
-:root { --accent: #e2703a; }
+:root { --accent: #9a4a1c; }
 .add-row { display: grid; grid-template-columns: 1.4fr .7fr .8fr 1.2fr auto; gap: 6px; margin-top: 12px; }
 .add-row .input, .add-row select { padding: 7px 8px; font-size: 13px; }
 .pantry { margin-top: 10px; max-height: 420px; overflow: auto; }
