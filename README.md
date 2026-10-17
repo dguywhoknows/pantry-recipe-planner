@@ -8,7 +8,7 @@ Live: https://dguywhoknows.github.io/pantry-recipe-planner/
 
 ## Overview
 
-Pantry Chef keeps an inventory of your kitchen with expiry dates, and you can quick-add items in plain English ("3 eggs, 500g chicken, half a cabbage"). The AI suggests three recipes that put your soon-to-expire food first. Everything after that runs locally: matching each ingredient against your pantry, a pantry-match score that weights expiring items, servings scaling with metric/US unit conversion and kitchen fractions, an auto shopping list for shortfalls, and a full-screen cook mode that turns "simmer for 12 minutes" into a one-tap timer. When you finish, the pantry deducts what you used.
+Pantry keeps an inventory of your kitchen with expiry dates, and you can quick-add items in plain English ("3 eggs, 500g chicken, half a cabbage"). The AI suggests three recipes that put your soon-to-expire food first. Everything after that runs locally: matching each ingredient against your pantry, a pantry-match score that weights expiring items, servings scaling with metric/US unit conversion and kitchen fractions, an auto shopping list for shortfalls, and a full-screen cook mode that turns "simmer for 12 minutes" into a one-tap timer. When you finish, the pantry deducts what you used.
 
 ## Pages
 
